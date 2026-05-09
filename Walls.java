@@ -21,18 +21,29 @@ public class Walls extends Actor
         img.setColor(greenfoot.Color.RED);
         img.fill();
         setImage(img);
-        img.setTransparency(0);
+        img.setTransparency(100);
     }
-
+ 
     public void changeWidth(int width)
     {
         this.width = width;
         updateImage();
     }
-
+  
     public void changeHeight(int height)
     {
         this.height = height;
         updateImage();
+    }
+    
+    
+    public int getWidth()
+    {
+    return width;
+    }
+
+    public int getHeight()
+    {
+    return height; 
     }
 }

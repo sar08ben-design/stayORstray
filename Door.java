@@ -3,7 +3,7 @@ import greenfoot.*;
 public class Door extends Actor
 {
     public boolean doorOpen = false;
-
+    
     public Door()
     {
         setClosedImage();
@@ -11,6 +11,7 @@ public class Door extends Actor
 
     public void act()
     {
+       
         
     }
 

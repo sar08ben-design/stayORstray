@@ -14,7 +14,7 @@ public class WinScreen extends World
      */
     public WinScreen()
     {
-        super(1000, 700, 1);
+        super(800, 600, 1);
         gfs_WinScreen =  new GreenfootSound("The Bells that Ring the Next Level.wav");
         prepare();
     }

@@ -1,4 +1,5 @@
 import greenfoot.*;
+import greenfoot.World;
 
 public class Protagonist extends Actor
 {
@@ -6,7 +7,7 @@ public class Protagonist extends Actor
     private GreenfootImage[] animationsA;
     private GreenfootImage[] animationsS;
     private GreenfootImage[] animationsD;
-    public static boolean dialogueON;
+    public static boolean dialogueON= true;
     private boolean moving;
     private int frame;
     private int delay;
@@ -25,20 +26,21 @@ public class Protagonist extends Actor
         animationsS = new GreenfootImage[6];
         animationsD = new GreenfootImage[6];
 
+        
+        for (int i = 0; i < 6; i++) 
+        {
+            animationsW[i] = new GreenfootImage("run_idle_" + i + ".png");
+            animationsW[i].scale(img_width, img_height);
 
-for (int i = 0; i < 6; i++) {
-    animationsW[i] = new GreenfootImage("run_idle_" + i + ".png");
-    animationsW[i].scale(img_width, img_height);
+            animationsA[i] = new GreenfootImage("run_walk_left_" + i + ".png");
+            animationsA[i].scale(img_width, img_height);
 
-    animationsA[i] = new GreenfootImage("run_walk_left_" + i + ".png");
-    animationsA[i].scale(img_width, img_height);
+            animationsS[i] = new GreenfootImage("run_walk_down_" + i + ".png");
+            animationsS[i].scale(img_width, img_height);
 
-    animationsS[i] = new GreenfootImage("run_walk_down_" + i + ".png");
-    animationsS[i].scale(img_width, img_height);
-
-    animationsD[i] = new GreenfootImage("run_walk_right_" + i + ".png");
-    animationsD[i].scale(img_width, img_height);
-}
+            animationsD[i] = new GreenfootImage("run_walk_right_" + i + ".png");
+            animationsD[i].scale(img_width, img_height);
+        }
     }
 
     public void act()
@@ -47,12 +49,15 @@ for (int i = 0; i < 6; i++) {
         move();
         animate();
         gotFood();
+        
     }
 
     public void move()
     {
+        if (dialogueON)
+     {
         moving = false;
-
+        
         if (Greenfoot.isKeyDown("w")) {
             setLocation(getX(), getY() - 3);
             if (isTouching(Walls.class)) {
@@ -61,7 +66,6 @@ for (int i = 0; i < 6; i++) {
             moving = true;
         }
         
-
         if (Greenfoot.isKeyDown("s")) {
             setLocation(getX(), getY() + 3);
             if (isTouching(Walls.class)) {
@@ -78,7 +82,6 @@ for (int i = 0; i < 6; i++) {
             moving = true;
         }
         
-
         if (Greenfoot.isKeyDown("d")) {
             setLocation(getX() + 3, getY());
             if (isTouching(Walls.class)) {
@@ -87,7 +90,9 @@ for (int i = 0; i < 6; i++) {
             moving = true;
         
         }
+     }
     }
+    
     
     public void animate(){
         if (moving){
@@ -116,21 +121,22 @@ for (int i = 0; i < 6; i++) {
         }
     }
     
- public void doorInteraction(){   
+    
+    public void doorInteraction(){   
     if (isTouching(Door.class) && Greenfoot.isKeyDown("e"))
-{
-    Door d = (Door) getOneIntersectingObject(Door.class);
+    {
+        Door d = (Door) getOneIntersectingObject(Door.class);
 
-    if (d.isOpen())
-    {
-        d.closeDoor();
+        if (d.isOpen())
+        {
+            d.closeDoor();
+        }
+        else 
+        {
+            d.openDoor();
+        }
     }
-    else
-    {
-        d.openDoor();
     }
-}
-}
     public void gotFood()
     {
         Actor dog_Food = getOneIntersectingObject(Dog_Food.class);
@@ -143,7 +149,7 @@ for (int i = 0; i < 6; i++) {
     }
     
     public boolean hasFood()
-{
+    {
     return hasFood;
-}
+    }
     }

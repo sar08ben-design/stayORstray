@@ -16,7 +16,7 @@ public class bedroom extends World
     public bedroom()
     {    
         //  a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(269, 378, 1); 
+        super(400, 746, 1); 
         ;
         prepare();
     }
@@ -26,9 +26,6 @@ public class bedroom extends World
      */
     private void prepare()
     {
-        Walls walls = new Walls(250, 5);
-        addObject(walls,106,134);
-        walls.setLocation(140,126);
-        walls.setLocation(137,127);
+       
     }
 }

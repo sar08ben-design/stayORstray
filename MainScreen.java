@@ -41,6 +41,7 @@ public class MainScreen extends World
      */
     private void prepare()
     {
+      
         Play_Button play_Button = new Play_Button();
         addObject(play_Button,500,500);
         Protagonist protagonist = new Protagonist();
