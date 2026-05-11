@@ -12,7 +12,6 @@ public class Atlas extends Actor
     public void act()
     {
         move();
-        checkFoodInteraction();
 
         if (isLevelWon())
         {
@@ -20,20 +19,10 @@ public class Atlas extends Actor
         }
     }
     
-    public void checkFoodInteraction()
-        {
-    Protagonist player = (Protagonist) getWorld().getObjects(Protagonist.class).get(0);
-
-    if (isTouching(Protagonist.class) &&
-        Greenfoot.isKeyDown("e") &&
-        player.hasFood())
-    {
-        dogFed = true;
-    }
-        }
+    
 
   public void move()
-{
+    {
     if (dogFed)
     {
         Protagonist player = (Protagonist) getWorld().getObjects(Protagonist.class).get(0);
@@ -60,7 +49,7 @@ public class Atlas extends Actor
                 setLocation(getX(), getY() - speed);
         }
     }
-}
+    }
 
     public void followProtagonist()
     {

@@ -2,14 +2,4 @@
 comment0.target=Walls
 comment1.params=width\ height
 comment1.target=Walls(int,\ int)
-comment2.params=
-comment2.target=void\ updateImage()
-comment3.params=width
-comment3.target=void\ changeWidth(int)
-comment4.params=height
-comment4.target=void\ changeHeight(int)
-comment5.params=
-comment5.target=int\ getWidth()
-comment6.params=
-comment6.target=int\ getHeight()
-numComments=7
+numComments=2

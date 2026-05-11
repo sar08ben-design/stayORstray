@@ -7,20 +7,27 @@ public class Protagonist extends Actor
     private GreenfootImage[] animationsA;
     private GreenfootImage[] animationsS;
     private GreenfootImage[] animationsD;
-    public static boolean dialogueON= true;
+    
+    public static boolean dialogueON= false;
+    public static boolean hasMoney= false;
     private boolean moving;
+    
     private int frame;
     private int delay;
-    private int img_width=32;
-    private int img_height=42;
+    private int img_width=48;
+    private int img_height=96;
     private P_animation direction;
-    private boolean hasFood = false;
+    
+    public int speed;
+    
+    
     public Protagonist()
     {
         frame = 0;
         delay = 0;
+        speed=3;
         direction = P_animation.S;
-
+        moving=false;
         animationsW = new GreenfootImage[6];
         animationsA = new GreenfootImage[6];
         animationsS = new GreenfootImage[6];
@@ -45,60 +52,84 @@ public class Protagonist extends Actor
 
     public void act()
     {
-        doorInteraction();
-        move();
-        animate();
-        gotFood();
         
+        if(!dialogueON){
+            move();
+        }
+        animate();
+        
+        checkInteractive();        
     }
 
     public void move()
     {
-        if (dialogueON)
-     {
+        checkInteractive();
         moving = false;
         
+        
+        
         if (Greenfoot.isKeyDown("w")) {
-            setLocation(getX(), getY() - 3);
+            setLocation(getX(), getY() - speed);
             if (isTouching(Walls.class)) {
-            setLocation(getX(), getY() + 3);
-            direction = P_animation.W;}
+                checkInteractive();
+              
+                setLocation(getX(), getY() + speed);
+            }
+            direction = P_animation.W;
             moving = true;
         }
         
         if (Greenfoot.isKeyDown("s")) {
-            setLocation(getX(), getY() + 3);
+            setLocation(getX(), getY() + speed);
             if (isTouching(Walls.class)) {
-            setLocation(getX(), getY() - 3);}
+                checkInteractive();
+                setLocation(getX(), getY() - speed);
+            }
             direction = P_animation.S;
             moving = true;
         }
             
             if (Greenfoot.isKeyDown("a")) {
-            setLocation(getX() - 3, getY());
+            setLocation(getX() - speed, getY());
             if (isTouching(Walls.class)) {
-            setLocation(getX() +3, getY());}
+                checkInteractive();
+                setLocation(getX() + speed, getY());
+            }
             direction = P_animation.A;
             moving = true;
         }
         
         if (Greenfoot.isKeyDown("d")) {
-            setLocation(getX() + 3, getY());
+            setLocation(getX() + speed, getY());
             if (isTouching(Walls.class)) {
-            setLocation(getX() - 3, getY());}
+                checkInteractive();
+                setLocation(getX() - speed, getY());
+            }
             direction = P_animation.D;
             moving = true;
         
         }
-     }
+        
+     
     }
+    
+    public void checkInteractive()
+    {
+        if (isTouching(Interactive.class))
+        {
+            Interactive.promptShowing = true;
+        }
+        else {
+            Interactive.promptShowing = false;
+        }
+        }
     
     
     public void animate(){
         if (moving){
             delay++;
 
-            if (delay >= 12) {
+            if (delay >= 10) {
 
                 if (direction == P_animation.W) {
                     setImage(animationsW[frame]);
@@ -114,7 +145,7 @@ public class Protagonist extends Actor
                 }
 
                 frame++;
-                if (frame >= 6) frame = 0;
+                if (frame > 5) frame = 0;
 
                 delay = 0;
             }
@@ -122,34 +153,8 @@ public class Protagonist extends Actor
     }
     
     
-    public void doorInteraction(){   
-    if (isTouching(Door.class) && Greenfoot.isKeyDown("e"))
-    {
-        Door d = (Door) getOneIntersectingObject(Door.class);
-
-        if (d.isOpen())
-        {
-            d.closeDoor();
-        }
-        else 
-        {
-            d.openDoor();
-        }
-    }
-    }
-    public void gotFood()
-    {
-        Actor dog_Food = getOneIntersectingObject(Dog_Food.class);
-        if (dog_Food != null) 
-        {
-            World world = getWorld();
-            world.removeObject(dog_Food);
-            hasFood = true;
-        }
-    }
     
-    public boolean hasFood()
-    {
-    return hasFood;
-    }
+    
+    
+    
     }

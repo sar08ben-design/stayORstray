@@ -16,6 +16,6 @@ public class Play_Button extends Actor
     }
     }
     public void startGame(){
-        Greenfoot.setWorld(new LivingRoom());
+        Greenfoot.setWorld(new Outside());
     }
 }

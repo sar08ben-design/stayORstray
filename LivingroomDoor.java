@@ -15,9 +15,7 @@ public class LivingroomDoor extends Door
     }
     
    public void act(){
-       if (isTouching(Protagonist.class) &&
-            Greenfoot.isKeyDown("e") &&
-            doorOpen)
+       if (isTouching(Protagonist.class))
         {
             Greenfoot.setWorld(new Kitchen());
         }

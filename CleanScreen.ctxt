@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=CleanScreen
+comment1.params=width\ height
+comment1.target=CleanScreen(int,\ int)
+comment2.params=
+comment2.target=void\ updateImage()
+comment3.params=color
+comment3.target=void\ changeColor(greenfoot.Color)
+comment4.params=t
+comment4.target=void\ changeTransparancy(int)
+comment5.params=width
+comment5.target=void\ changeWidth(int)
+comment6.params=height
+comment6.target=void\ changeHeight(int)
+comment7.params=
+comment7.target=int\ getWidth()
+comment8.params=
+comment8.target=int\ getHeight()
+numComments=9

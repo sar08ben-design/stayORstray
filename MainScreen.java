@@ -14,7 +14,7 @@ public class MainScreen extends World
      */
     public MainScreen()
     {
-        super(450, 450, 1);
+        super(700, 500, 1);
         gfs_MainScreen =  new GreenfootSound("Innocent Halloween.wav");
         prepare();
     }
@@ -41,7 +41,7 @@ public class MainScreen extends World
      */
     private void prepare()
     {
-      
+
         Play_Button play_Button = new Play_Button();
         addObject(play_Button,500,500);
         Protagonist protagonist = new Protagonist();
@@ -56,6 +56,10 @@ public class MainScreen extends World
         play_Button.setLocation(228,60);
         play_Button.setLocation(243,74);
         play_Button.setLocation(220,60);
+        play_Button.setLocation(554,92);
+        play_Button.setLocation(532,90);
+        play_Button.setLocation(528,90);
+        play_Button.setLocation(154,427);
     }
 
 }
