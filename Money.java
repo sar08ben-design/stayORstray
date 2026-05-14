@@ -1,25 +1,36 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Dog_Food here.
+ * Write a description of class Money here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Money extends Actor
+public class Money extends dialogueTrigger
 {
-    public Money(){
-        
-        setImage("money.jpg");
-        getImage().scale(30, 80);
-        
+    
+    private int myMin = 15;
+    private int myMax = 15;
+    /**
+     * Act - do whatever the Money wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public Money(int width, int height)
+    {
+        super(width, height);
+       
     }
+    
     public void act()
     {
-      if (isTouching(Protagonist.class))
+        checkTouch();
+        arrayMin = myMin;
+       arrayMax = myMax;
+       if (!Protagonist.dialogueON && Dialogue.currentIndex == 15)
         {
             Protagonist.hasMoney = true;
-            getWorld().removeObject(this);
-        }
+        } // Add your action code here.
     }
 }
+  
+

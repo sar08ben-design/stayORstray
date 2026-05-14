@@ -8,14 +8,18 @@ public class Protagonist extends Actor
     private GreenfootImage[] animationsS;
     private GreenfootImage[] animationsD;
     
+    public static int playAmmount=0;
+    public static boolean hasKey= false;
     public static boolean dialogueON= false;
     public static boolean hasMoney= false;
+    public static boolean hasFood= false;
+    public static boolean startAgain= false;
     private boolean moving;
     
     private int frame;
     private int delay;
-    private int img_width=48;
-    private int img_height=96;
+    public static int img_width=48;
+    public static int img_height=96;
     private P_animation direction;
     
     public int speed;
@@ -57,21 +61,17 @@ public class Protagonist extends Actor
             move();
         }
         animate();
-        
-        checkInteractive();        
+               
     }
-
+    public int getPlayAmmount(){return playAmmount;}
     public void move()
     {
-        checkInteractive();
-        moving = false;
         
-        
+        moving = false; 
         
         if (Greenfoot.isKeyDown("w")) {
             setLocation(getX(), getY() - speed);
             if (isTouching(Walls.class)) {
-                checkInteractive();
               
                 setLocation(getX(), getY() + speed);
             }
@@ -82,7 +82,7 @@ public class Protagonist extends Actor
         if (Greenfoot.isKeyDown("s")) {
             setLocation(getX(), getY() + speed);
             if (isTouching(Walls.class)) {
-                checkInteractive();
+                
                 setLocation(getX(), getY() - speed);
             }
             direction = P_animation.S;
@@ -92,7 +92,7 @@ public class Protagonist extends Actor
             if (Greenfoot.isKeyDown("a")) {
             setLocation(getX() - speed, getY());
             if (isTouching(Walls.class)) {
-                checkInteractive();
+                
                 setLocation(getX() + speed, getY());
             }
             direction = P_animation.A;
@@ -102,7 +102,7 @@ public class Protagonist extends Actor
         if (Greenfoot.isKeyDown("d")) {
             setLocation(getX() + speed, getY());
             if (isTouching(Walls.class)) {
-                checkInteractive();
+                
                 setLocation(getX() - speed, getY());
             }
             direction = P_animation.D;
@@ -113,16 +113,7 @@ public class Protagonist extends Actor
      
     }
     
-    public void checkInteractive()
-    {
-        if (isTouching(Interactive.class))
-        {
-            Interactive.promptShowing = true;
-        }
-        else {
-            Interactive.promptShowing = false;
-        }
-        }
+    
     
     
     public void animate(){

@@ -39,6 +39,8 @@ public class CleanScreen extends Actor
         System.out.print("Put number between 0 and 100");
         }
     }
+    
+    
  
     public void changeWidth(int width)
     {

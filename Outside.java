@@ -34,22 +34,33 @@ public class Outside extends World
         toLivingR.setLocation(215,233);
         toLivingR.setLocation(222,233);
         toLivingR.setLocation(218,233);
+
         Protagonist protagonist = new Protagonist();
         addObject(protagonist,670,349);
+        Atlas atlas = new Atlas();
+        if (Atlas.dogFed)  {addObject(atlas,171,327);}
+
         toLivingR.changeTransparancy(0);
         cashierDialogue cashierDialogue = new cashierDialogue(40, 20);
         addObject(cashierDialogue,514,287);
-        cashierDialogue.setLocation(511,292);
-        cashierDialogue.setLocation(511,286);
-        cashierDialogue.setLocation(513,274);
-        cashierDialogue.setLocation(512,269);
+
         Dialogue dialogue = new Dialogue();
         addObject(dialogue,344,470);
-        cashierDialogue.setLocation(521,218);
+
         cashierDialogue.setLocation(513,218);
         cashierDialogue.changeTransparancy(0);
         protagonist.setLocation(68,353);
         protagonist.setLocation(212,354);
         protagonist.setLocation(220,337);
+        cashierDialogue cashierDialogue2 = new cashierDialogue(50, 15);
+        addObject(cashierDialogue2,509,248);
+        cashierDialogue2.setLocation(516,230);
+        cashierDialogue cashierDialogue3 = new cashierDialogue(50, 15);
+        addObject(cashierDialogue3,517,228);
+
+     
+        afterFed afterFed = new afterFed(30, 300);
+        addObject(afterFed,682,391);
+        afterFed.setLocation(699,397);
     }
 }

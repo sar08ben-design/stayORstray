@@ -15,8 +15,12 @@ public class toBasement extends Transition
     public void act()
     {
         if (transition()){
-        
+        if (Protagonist.hasKey){
         Greenfoot.setWorld(new Basement());
+        }
+        else {
+        Greenfoot.playSound("");
+        }
         }
     }
 }

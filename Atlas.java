@@ -8,7 +8,8 @@ import greenfoot.*;
 public class Atlas extends Actor
 {
 
-   private boolean dogFed=false;
+   public static boolean dogFed=false;
+   
     public void act()
     {
         move();
@@ -18,14 +19,18 @@ public class Atlas extends Actor
             transitionToWinScreen();
         }
     }
+    //just to test stuff if needed without needing to play the game
+    public void feedDog(){
     
-    
+    dogFed=true;
+    }
 
   public void move()
     {
-    if (dogFed)
+    if (dogFed==true)
     {
-        Protagonist player = (Protagonist) getWorld().getObjects(Protagonist.class).get(0);
+        Protagonist player = (Protagonist) getWorld().getObjects
+        (Protagonist.class).get(0);
 
         int dx = player.getX() - getX();
         int dy = player.getY() - getY();

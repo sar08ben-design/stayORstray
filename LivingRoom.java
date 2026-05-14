@@ -27,8 +27,7 @@ public class LivingRoom extends World
     private void prepare()
     {
 
-        CleanScreen cleanScreen = new CleanScreen(700, 500);
-        addObject(cleanScreen, 350, 250);
+        
 
         Walls walls = new Walls(150, 400);
         addObject(walls, 650, 96);
@@ -63,32 +62,18 @@ public class LivingRoom extends World
         Walls walls11 = new Walls(30, 30);
         addObject(walls11, 566, 185);
 
-        Interactive walls12 = new Interactive(60, 10);
-        addObject(walls12, 530, 48);
 
-        Interactive walls13 = new Interactive(40, 10);
-        addObject(walls13, 244, 52);
-
-        cleanScreen.changeTransparancy(0);
-        cleanScreen.changeTransparancy(20);
-        cleanScreen.setLocation(318,154);
+       
         Atlas atlas = new Atlas();
         addObject(atlas,318,154);
-        cleanScreen.setLocation(318,174);
-        cleanScreen.setLocation(308,158);
-        cleanScreen.setLocation(484,197);
-        cleanScreen.changeTransparancy(0);
+       
         toKitchen toKitchen = new toKitchen(20, 100);
         addObject(toKitchen,672,395);
-        cleanScreen.setLocation(689,464);
         toKitchen.setLocation(688,437);
-        cleanScreen.setLocation(684,397);
         toKitchen.changeHeight(150);
-        cleanScreen.setLocation(599,381);
-        cleanScreen.setLocation(603,367);
+        
         toKitchen.changeColor(greenfoot.Color.WHITE);
-        cleanScreen.setLocation(693,437);
-        cleanScreen.setLocation(690,446);
+       
         toKitchen.setLocation(690,457);
         toKitchen.setLocation(688,449);
         toKitchen.setLocation(690,449);
@@ -100,13 +85,16 @@ public class LivingRoom extends World
         if (toLivingR.protaPosition==0)
         {
             addObject(protagonist,86,443);
+            if (Atlas.dogFed)  {addObject(atlas,60,440);}
         }
 
         else if (toLivingR.protaPosition==1){
             addObject(protagonist,599,439);
+            if (Atlas.dogFed)  {addObject(atlas,625,435);}
         }
         else if (toLivingR.protaPosition==2){
             addObject(protagonist,156,73);
+            if (Atlas.dogFed)  {addObject(atlas,156,60);}
         }
         toBedroom toBedroom = new toBedroom(100, 15);
         addObject(toBedroom,152,19);
@@ -116,7 +104,7 @@ public class LivingRoom extends World
         walls5.changeTransparancy(0);
         walls2.changeTransparancy(0);
         walls.changeTransparancy(0);
-        cleanScreen.changeTransparancy(0);
+       
         walls10.changeTransparancy(0);
         walls11.changeTransparancy(0);
         walls3.changeTransparancy(0);
@@ -127,12 +115,26 @@ public class LivingRoom extends World
         atlas.setLocation(239,341);
         firstInteractionDog firstInteractionDog = new firstInteractionDog(10, 10);
         addObject(firstInteractionDog,238,333);
+        if (Atlas.dogFed){
+            removeObject(firstInteractionDog);    
+        }
+
         atlas.setLocation(238,322);
         atlas.setLocation(238,317);
         Dialogue dialogue = new Dialogue();
         addObject(dialogue,350,442);
         atlas.setLocation(235,286);
-        cleanScreen.getWorld();
+      
         atlas.setLocation(238,347);
+        Walls walls12 = new Walls(700, 15);
+        addObject(walls12,318,490);
+        walls12.setLocation(363,499);
+       
+        walls12.changeTransparancy(0);
+    
+        walls8.changeTransparancy(0);
+        walls7.changeTransparancy(0);
+        walls9.changeTransparancy(0);
+        walls6.changeTransparancy(0);
     }
 }

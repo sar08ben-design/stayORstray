@@ -164,30 +164,27 @@ public class Kitchen extends World
         interactive.setLocation(524,157);
         interactive.setLocation(515,153);
         interactive.setLocation(514,159);
-        fridgeDialogue fridgeDialogue = new fridgeDialogue(20, 20);
-        addObject(fridgeDialogue,288,80);
         walls5.setLocation(262,92);
-        fridgeDialogue fridgeDialogue2 = new fridgeDialogue(50, 20);
-        addObject(fridgeDialogue2,405,97);
-        fridgeDialogue2.setLocation(407,91);
-        fridgeDialogue2.setLocation(407,97);
-        fridgeDialogue.changeWidth(70);
-        fridgeDialogue fridgeDialogue3 = new fridgeDialogue(60, 60);
-        addObject(fridgeDialogue3,507,164);
+
         interactive.setLocation(520,156);
         walls5.setLocation(427,41);
         walls5.setLocation(370,41);
-        fridgeDialogue2.setLocation(385,75);
-        fridgeDialogue2.setLocation(402,83);
-        fridgeDialogue2.setLocation(407,87);
-        fridgeDialogue2.setLocation(406,84);
+
         Dialogue dialogue = new Dialogue();
         addObject(dialogue,345,456);
         walls5.setLocation(359,57);
         walls5.setLocation(365,51);
         walls5.setLocation(370,53);
         walls5.setLocation(370,59);
-        fridgeDialogue.setLocation(279,90);
-        fridgeDialogue.setLocation(293,84);
+
+        removeObject(interactive);
+    
+        
+        frideDialogue frideDialogue = new frideDialogue(20, 20);
+        addObject(frideDialogue,274,148);
+        sinkDialogue sinkDialogue = new sinkDialogue(20, 20);
+        addObject(sinkDialogue,398,145);
+        stoveDialogue stoveDialogue = new stoveDialogue(20, 20);
+        addObject(stoveDialogue,489,210);
     }
 }

@@ -19,19 +19,17 @@ public class Interactive extends CleanScreen
     public void act()
     {
         
-         if (promptShowing == true && getWorld().
-         getObjects(InteractPrompt.class).isEmpty())
-        {
-            getWorld().addObject(new InteractPrompt(),
-            getX(), getY());
-        }
-        else if (promptShowing == false)
-        {
-            getWorld().removeObjects(getWorld().
-            getObjects(InteractPrompt.class));
-        }
-        
-    }
 
+        interact();
+    }
+    public void interact()
+    {
+          if (isTouching(Protagonist.class) && !Protagonist.dialogueON)
+        {
+            Greenfoot.setWorld(new Ending1());
+            Protagonist.dialogueON = true;
+            Dialogue.currentIndex = dialogueTrigger.arrayMin;
+        }
+    }
 
 }

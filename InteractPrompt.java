@@ -1,9 +1,10 @@
 import greenfoot.*;
 
+
 public class InteractPrompt extends Actor
 {
     public InteractPrompt()
-    {
+    {//i swear if this dont work again
         GreenfootImage img = new GreenfootImage(120, 30);
         img.setColor(new Color(0, 0, 0, 180));
         img.fillRect(0, 0, 120, 30);
@@ -15,5 +16,6 @@ public class InteractPrompt extends Actor
     
     public void act()
     {
+        
     }
 }

@@ -6,11 +6,11 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Splash_Screen extends World
+public class SplashScreen extends World
 {
     double splashTime = System.currentTimeMillis();
 
-    public Splash_Screen()
+    public SplashScreen()
     {    
         super(700, 500, 1);
 
